@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Configuration;
 using Sitecore.AspNetCore.SDK.GraphQL.Extensions;
+using Sitecore.AspNetCore.SDK.Pages.Extensions;
 using Sitecore.AspNetCore.Starter.Extensions;
 using System.Globalization;
 
@@ -23,6 +23,7 @@ if (sitecoreSettings.EnableLocalContainer)
 {
     // Register the GraphQL version of the Sitecore Layout Service Client for use against local container endpoint
     builder.Services.AddSitecoreLayoutService()
+                    .AddSitecorePagesHandler()
                     .AddGraphQlHandler("default", sitecoreSettings.DefaultSiteName!, sitecoreSettings.EdgeContextId!, sitecoreSettings.LocalContainerLayoutUri!)
                     .AsDefaultHandler();
 }
@@ -30,6 +31,7 @@ else
 {
     // Register the GraphQL version of the Sitecore Layout Service Client for use against experience edge
     builder.Services.AddSitecoreLayoutService()
+                    .AddSitecorePagesHandler()
                     .AddGraphQlWithContextHandler("default", sitecoreSettings.EdgeContextId!, siteName: sitecoreSettings.DefaultSiteName!)
                     .AsDefaultHandler();
 }
@@ -40,7 +42,7 @@ builder.Services.AddSitecoreRenderingEngine(options =>
                                .AddDefaultPartialView("_ComponentNotFound");
                     })
                 .ForwardHeaders()
-                .WithExperienceEditor(options => { options.JssEditingSecret = sitecoreSettings.EditingSecret ?? string.Empty; });
+                .WithSitecorePages(sitecoreSettings.EdgeContextId ?? string.Empty, options => { options.EditingSecret = sitecoreSettings.EditingSecret; });
 
 WebApplication app = builder.Build();
 
@@ -56,7 +58,7 @@ else
 
 if (sitecoreSettings.EnableEditingMode)
 {
-    app.UseSitecoreExperienceEditor();
+    app.UseSitecorePages();
 }
 
 app.UseRouting();
