@@ -1,0 +1,23 @@
+# folders
+.git
+.github
+.gitignore
+.vs
+.config
+.sitecore
+build
+docker
+packages
+**/bin/
+**/obj/
+**/coverage/
+
+# files
+*Dockerfile
+docker-compose*
+**/*.md
+*.ps1
+**/*.yml
+**/*.module.json
+sitecore.json
+xmcloud.build.json
