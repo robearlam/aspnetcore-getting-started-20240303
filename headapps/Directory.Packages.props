@@ -1,15 +1,16 @@
 <Project>
-    <PropertyGroup>
-        <AspNetCoreSdkVersion>0.0.13</AspNetCoreSdkVersion>
-    </PropertyGroup>
-    <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageVersion Include="Sitecore.AspNetCore.SDK.GraphQL" Version="$(AspNetCoreSdkVersion)" />
-        <PackageVersion Include="Sitecore.AspNetCore.SDK.LayoutService.Client" Version="$(AspNetCoreSdkVersion)" />
-        <PackageVersion Include="Sitecore.AspNetCore.SDK.Pages" Version="$(AspNetCoreSdkVersion)" />
-        <PackageVersion Include="Sitecore.AspNetCore.SDK.RenderingEngine" Version="$(AspNetCoreSdkVersion)" />
-        <PackageVersion Include="Sitecore.AspNetCore.SDK.ExperienceEditor" Version="$(AspNetCoreSdkVersion)" />
-    </ItemGroup>
+  <PropertyGroup>
+    <AspNetCoreSdkVersion>0.0.13</AspNetCoreSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Sitecore.AspNetCore.SDK.GraphQL" Version="$(AspNetCoreSdkVersion)" />
+    <PackageVersion Include="Sitecore.AspNetCore.SDK.LayoutService.Client" Version="$(AspNetCoreSdkVersion)" />
+    <PackageVersion Include="Sitecore.AspNetCore.SDK.Pages" Version="$(AspNetCoreSdkVersion)" />
+    <PackageVersion Include="Sitecore.AspNetCore.SDK.RenderingEngine" Version="$(AspNetCoreSdkVersion)" />
+    <PackageVersion Include="Sitecore.AspNetCore.SDK.ExperienceEditor" Version="$(AspNetCoreSdkVersion)" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.2" />
+  </ItemGroup>
 </Project>
